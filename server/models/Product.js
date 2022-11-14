@@ -20,6 +20,11 @@ const productSchema = new mongoose.Schema({
         required:true,
         enum:['Clothes','Shoes','Accessories']
     },
+    creator:{
+        type:mongoose.Types.ObjectId,
+        ref:'User',
+        required:true,  
+    },
     customers:[{
         type:mongoose.Types.ObjectId,
         ref:'User'

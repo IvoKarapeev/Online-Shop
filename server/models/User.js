@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required:true
     },
+    createdProducts:[{
+        type:mongoose.Types.ObjectId,
+        ref:'Movie'
+    }],
     purchasedProducts:[{
         type:mongoose.Types.ObjectId,
         ref:'Product'
