@@ -10,4 +10,20 @@ router.get('/', async (req,res) => {
 
 });
 
+router.post('/',isAuth,async (req,res) => {
+
+    const {name,description,imageUrl,category} = req.body;
+
+    try {
+
+        const newProduct =  await ProductsService.createProduct(name,description,imageUrl,category);
+
+        res.json(newProduct)
+    
+    } catch (error) {
+        res.status(400).json({error});
+    }
+
+});
+
 module.exports = router;
