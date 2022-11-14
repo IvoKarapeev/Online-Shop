@@ -26,4 +26,16 @@ router.post('/',isAuth,async (req,res) => {
 
 });
 
+router.get('/:productId',async (req,res) => {
+
+    try {
+        const product = await ProductsService.getOne(req.params.productId);
+        
+        res.json(product);
+    } catch (error) {
+        res.status(404).send('Cant find movie with this ID!');
+    }
+
+});
+
 module.exports = router;

@@ -15,4 +15,7 @@ exports.createProduct = async (name,description,imageUrl,category) => {
 
     return product;
 
-}
+};
+
+exports.getOne = (productId) => Product.findById(productId);
+
