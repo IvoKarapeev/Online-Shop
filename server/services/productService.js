@@ -43,4 +43,18 @@ exports.edit = async (productId,productData,userId) => {
 
 };
 
+exports.delete = async (productId,userId) => {
+
+    const product = await Product.findById(productId).populate('creator');
+    const creator = product.creator;
+
+    if (userId != creator._id) {
+        throw{
+            error: 'You must be the owner to delete!'
+        };
+    };
+
+    await Product.findByIdAndDelete(productId);
+}
+
 

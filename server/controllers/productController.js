@@ -1,10 +1,10 @@
 const router = require('express').Router();
 const { isAuth } = require('../middlewares/authMiddlewares');
-const ProductsService = require('../services/productService');
+const productService = require('../services/productService');
 
 router.get('/', async (req,res) => {
 
-    const products = await ProductsService.getAllProducts().lean();
+    const products = await productService.getAllProducts().lean();
 
     res.json(products);
 
@@ -17,7 +17,7 @@ router.post('/',isAuth,async (req,res) => {
 
     try {
 
-        const newProduct =  await ProductsService.createProduct(name,description,imageUrl,category,creator);
+        const newProduct =  await productService.createProduct(name,description,imageUrl,category,creator);
 
         res.json(newProduct);
     
@@ -30,7 +30,7 @@ router.post('/',isAuth,async (req,res) => {
 router.get('/:productId',async (req,res) => {
 
     try {
-        const product = await ProductsService.getOne(req.params.productId);
+        const product = await productService.getOne(req.params.productId);
         
         res.json(product);
     } catch (error) {
@@ -53,7 +53,7 @@ router.post('/:productId',isAuth,async (req,res) => {
 
     try {
         
-        const updatedProduct = await ProductsService.edit(req.params.productId,productData,userId);
+        const updatedProduct = await productService.edit(req.params.productId,productData,userId);
 
         res.send(updatedProduct)
 
@@ -62,5 +62,21 @@ router.post('/:productId',isAuth,async (req,res) => {
     }
 
 });
+
+router.delete('/:productId',isAuth,async (req,res) => {
+
+    const userId = req.user._id;
+    
+    try {
+        
+        await productService.delete(req.params.productId,userId);
+
+        res.send('Product deleted!');
+
+    } catch (error) {
+        res.status(404).send(error.error);
+    }
+
+})
 
 module.exports = router;
