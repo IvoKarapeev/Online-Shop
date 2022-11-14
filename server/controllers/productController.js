@@ -74,9 +74,26 @@ router.delete('/:productId',isAuth,async (req,res) => {
         res.send('Product deleted!');
 
     } catch (error) {
-        res.status(404).send(error.error);
+        res.status(400).send(error.error);
     }
 
-})
+});
+
+router.get('/purchase/:productId',isAuth,async (req,res) => {
+
+    const userId = req.user._id;
+    
+    try {
+        
+        const purchesedProduct = await productService.purchaseProduct(req.params.productId,userId);
+
+        res.json(purchesedProduct);
+
+    } catch (error) {
+        res.status(400).send(error.error);
+    }
+
+});
+
 
 module.exports = router;

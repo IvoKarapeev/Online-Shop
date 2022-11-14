@@ -55,6 +55,31 @@ exports.delete = async (productId,userId) => {
     };
 
     await Product.findByIdAndDelete(productId);
+};
+
+
+exports.purchaseProduct = async (productId,userId) => {
+
+    const user = await User.findById(userId); 
+    const product = await Product.findById(productId).populate('creator');
+    
+    const creator = product.creator;
+    
+
+    if (userId == creator._id) {
+        throw{
+            error: 'You cant purchase this item if you are the creator!'
+        };
+    };
+
+    user.purchasedProducts.push(product);
+    user.save();
+
+    product.customers.push(user);
+    product.save();
+
+    return product;
+    
 }
 
 
