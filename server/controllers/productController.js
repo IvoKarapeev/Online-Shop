@@ -13,12 +13,13 @@ router.get('/', async (req,res) => {
 router.post('/',isAuth,async (req,res) => {
 
     const {name,description,imageUrl,category} = req.body;
+    const creator = req.user;
 
     try {
 
-        const newProduct =  await ProductsService.createProduct(name,description,imageUrl,category);
+        const newProduct =  await ProductsService.createProduct(name,description,imageUrl,category,creator);
 
-        res.json(newProduct)
+        res.json(newProduct);
     
     } catch (error) {
         res.status(400).json({error});
@@ -33,7 +34,31 @@ router.get('/:productId',async (req,res) => {
         
         res.json(product);
     } catch (error) {
-        res.status(404).send('Cant find movie with this ID!');
+        res.status(404).send(error.error);
+    }
+
+});
+
+router.post('/:productId',isAuth,async (req,res) => {
+
+    const userId = req.user._id;
+    const {name,description,imageUrl,category} = req.body;
+
+    const productData = {
+        name,
+        description,
+        imageUrl,
+        category
+    };
+
+    try {
+        
+        const updatedProduct = await ProductsService.edit(req.params.productId,productData,userId);
+
+        res.send(updatedProduct)
+
+    } catch (error) {
+        res.status(404).send(error.error);
     }
 
 });
