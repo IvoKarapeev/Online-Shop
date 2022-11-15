@@ -1,0 +1,74 @@
+.navbar {
+    position: absolute;
+    top: 30px;
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    height: 50px;
+    width: 1910px;
+    background-color: rgb(4, 101, 77);
+    color: rgb(11, 172, 132);
+}
+
+.nav-links a {
+    font-size: larger;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(10, 10, 10);
+}
+
+/* .logo {
+    display: block;
+    text-align: center;
+    height: 70px;
+    width: 100px;
+} */
+
+.menu {
+    display: flex;
+    gap: 1em;
+    font-size: 18px;
+}
+
+.menu p:hover {
+    background-color:rgb(11, 172, 132);
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+.menu p {
+    padding: 5px 14px;
+}
+
+.services {
+    position: relative;
+}
+
+.dropdown {
+    background-color: rgb(1, 139, 139);
+    padding: 1em 0;
+    position: absolute;
+    display: none;
+    border-radius: 8px;
+    top: 35px;
+    left: -62px;
+}
+
+.dropdown p+p {
+    margin-top: 10px;
+}
+
+.dropdown p {
+    padding: 0.5em 1em; 
+    width: 8em;
+    text-align: center;
+}
+
+.dropdown p:hover {
+    background-color: #4c9e9e;
+}
+
+.services:hover .dropdown {
+    z-index: 1;
+    display: block;
+}
