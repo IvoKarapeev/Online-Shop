@@ -1,0 +1,85 @@
+.page-image{
+    background-image: url('../../../public/images/background-image-homePage.jpg');
+    position: absolute;
+    top: 150px;
+    width: 1920px;
+    height: 300px;
+}
+
+.background{
+    background-color: rgb(151, 168, 156);
+    width: 198vh;
+    height: 100vh;
+}
+
+.btn-clothes{
+    font-family: serif;
+    font-size: 35px;
+    color: rgb(46, 81, 87);
+    background-color:rgb(225, 229, 216);
+    border-radius: 25px;
+    border: 2px solid rgb(70, 88, 76);
+    position: absolute;
+    top: 500px;
+    left: 50px;
+    width: 420px;
+    height: 400px;
+}
+
+.btn-shoes{
+    font-family: serif;
+    font-size: 35px;
+    color: rgb(46, 81, 87);
+    background-color:rgb(225, 229, 216);
+    border-radius: 25px;
+    border: 2px solid rgb(70, 88, 76);
+    position: absolute;
+    top: 500px;
+    left: 520px;
+    width: 420px;
+    height: 400px;
+}
+
+.btn-accessories{
+    font-family: serif;
+    font-size: 35px;
+    color: rgb(46, 81, 87);
+    background-color:rgb(225, 229, 216);
+    border-radius: 25px;
+    border: 2px solid rgb(70, 88, 76);
+    position: absolute;
+    top: 500px;
+    left: 980px;
+    width: 420px;
+    height: 400px;
+}
+
+.btn-sell{
+    font-family: serif;
+    font-size: 35px;
+    color: rgb(46, 81, 87);
+    background-color:rgb(225, 229, 216);
+    border-radius: 25px;
+    border: 2px solid rgb(70, 88, 76);
+    position: absolute;
+    top: 500px;
+    left: 1440px;
+    width: 420px;
+    height: 400px;
+}
+
+.btn-clothes:hover{
+    background-color:rgb(152, 197, 131);
+}
+
+.btn-shoes:hover{
+    background-color:rgb(152, 197, 131);
+}
+
+.btn-accessories:hover{
+    background-color:rgb(152, 197, 131);
+}
+
+.btn-sell:hover{
+    background-color:rgb(152, 197, 131);
+}
