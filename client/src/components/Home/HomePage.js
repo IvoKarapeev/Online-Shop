@@ -3,7 +3,7 @@ import styles from './HomePage.module.css';
 const HomePage = () => {
 
     return (
-        <div className={styles.background}>
+        <div>
             <div className={styles['page-image']}>
             </div>
             <button className={styles['btn-clothes']}>You want to buy clothes that are exactly in your style, click here</button>

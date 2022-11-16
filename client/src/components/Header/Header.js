@@ -4,46 +4,43 @@ import { Link } from 'react-router-dom';
 const Header = () => {
 
     return (
-        <div>
             <nav className={styles.navbar}>
                 {/* <img src="/images/logo.png" alt="" className={styles.logo} /> */}
                 <hr />
                 <ul className={styles['nav-links']}>
                     <div className={styles.menu}>
-                        <p>
+                        <div>
                             <Link to='/'>Home</Link>
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <Link to='/register'>Login</Link>
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <Link to='/register'>Register</Link>
-                        </p>
-                        <p className={styles.services}>
+                        </div>
+                            <div className={styles.services}>
                             <a href="/">Services</a>
                             <ul className={styles.dropdown}>
-                                <p>
+                                <div>
                                 <Link to="/">Clothes</Link>
-                                </p>
-                                <p>
+                                </div>
+                                <div>
                                 <Link to="/">Shoes</Link>
-                                </p>
-                                <p>
+                                </div>
+                                <div>
                                 <Link to="/">Accessories</Link>
-                                </p>
+                                </div>
                             </ul>
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <Link to='/register'>Logout</Link>
-                        </p>
-                        <p>
+                        </div>
+                        <div>
                             <Link to='/register'>Create Item</Link>
-                        </p>
+                        </div>
                     </div>
                 </ul>
             </nav>
-        </div>
-       
       
     )
 

@@ -30,13 +30,13 @@
     font-size: 18px;
 }
 
-.menu p:hover {
+.menu div:hover {
     background-color:rgb(11, 172, 132);
     border-radius: 5px;
     transition: 0.3s ease;
 }
 
-.menu p {
+.menu div {
     padding: 5px 14px;
 }
 
@@ -54,17 +54,17 @@
     left: -62px;
 }
 
-.dropdown p+p {
+.dropdown div+div {
     margin-top: 10px;
 }
 
-.dropdown p {
+.dropdown div {
     padding: 0.5em 1em; 
     width: 8em;
     text-align: center;
 }
 
-.dropdown p:hover {
+.dropdown div:hover {
     background-color: #4c9e9e;
 }
 
