@@ -33,7 +33,7 @@ const Header = () => {
                             </ul>
                         </div>
                         <div>
-                            <Link to='/register'>Logout</Link>
+                            <Link to='/logout'>Logout</Link>
                         </div>
                         <div>
                             <Link to='/register'>Create Item</Link>

@@ -17,7 +17,7 @@ const useLocalStorige = (key,defaultValue) => {
 
     const setStorigeData = (newValue) => {
 
-        localStorage.setItem(key,newValue);
+        localStorage.setItem(key,JSON.stringify(newValue));
 
         setData(newValue);
     };
