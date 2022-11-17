@@ -17,10 +17,18 @@ const productsSlice = createSlice({
             const newState = [...state,userState];
 
             return newState;
+        },
+        loginUser() {},
+        setErrorAuth(state, action) {
+            const errorState = {error:action.payload}
+            const newState = [...state,errorState];
+
+            return newState;
+
         }
     }
 });
 
-export const { getProducts,setProducts,registerUser,setUserState } = productsSlice.actions;
+export const { getProducts,setProducts,registerUser,setUserState,loginUser,setErrorAuth } = productsSlice.actions;
 
 export default productsSlice.reducer;

@@ -1,0 +1,50 @@
+.container {
+    margin-top: 150px;
+    margin-left: 570px;
+    background-color: rgb(117, 137, 125);
+    width: 40%;
+    height: 90%;
+    padding: 16px;
+    box-sizing: border-box
+}
+
+.input-text {
+    width: 95%;
+    padding: 10px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+}
+
+.input-text:focus {
+    background-color: #ddd;
+    outline: none;
+}
+
+.separator {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+}
+
+.loginbtn {
+    background-color: rgb(4, 101, 77);
+    color: white;
+    padding: 16px 20px;
+    margin: 10px 0;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    opacity: 0.9;
+}
+
+.registerbtn:hover {
+    background-color: rgb(30, 82, 69);
+}
+
+.validate {
+    color: rgb(228, 5, 5);
+    font-size: 16px;
+    font-family: cursive;
+    text-shadow: 1px 1px black;
+}
