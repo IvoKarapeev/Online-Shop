@@ -1,12 +1,13 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { registerUser } from '../../redux/slice/productsSlice';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { AuthContext } from '../../contexts/AuthContext';
 
 import styles from './Register.module.css';
 
-const Register = ({setUser}) => {
+const Register = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -19,6 +20,8 @@ const Register = ({setUser}) => {
         password:'',
         repeatPassword:''
     });
+
+    const {setUser} = useContext(AuthContext);
 
     useEffect(() => {
         const userState = state.find(x => x.hasOwnProperty('user'));

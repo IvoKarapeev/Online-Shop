@@ -1,17 +1,20 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { loginUser } from '../../redux/slice/productsSlice';
 import { useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
 import styles from './Login.module.css';
+import { AuthContext } from '../../contexts/AuthContext';
 
-const Login = ({setUser}) => {
+const Login = () => {
 
     const dispatch = useDispatch();
     const navigate = useNavigate();
 
     const state = useSelector(state => state.products);
+
+    const {setUser} = useContext(AuthContext);
 
     const [userData,setUserData] = useState({
         username:'',

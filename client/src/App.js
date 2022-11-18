@@ -10,6 +10,7 @@ import { Routes,Route } from 'react-router-dom';
 import useLocalStorige from './hooks/useLocalStorige';
 import { clearUserState } from './redux/slice/productsSlice';
 import { useDispatch } from 'react-redux';
+import { AuthContext } from './contexts/AuthContext';
 
 function App() {
 
@@ -20,24 +21,24 @@ function App() {
         setAuthData(data);
     };
 
-    console.log(authData);
-    
     const logoutHandler = () => {
         dispatch(clearUserState());
         setAuthData({});
     }
 
     return (
-        <div className="App">
-            <Header/>
+        <AuthContext.Provider value={{user:authData,setUser,logoutHandler}}>
+            <div className="App">
+                <Header/>
 
-            <Routes>
-                <Route path='/' element={<HomePage/>}/>
-                <Route path='/register' element={<Register setUser={setUser}/>}/>
-                <Route path='/login' element={<Login setUser={setUser}/>}/>
-                <Route path='/logout' element={<Logout logoutHandler={logoutHandler}/>}/>
-            </Routes>
-        </div>
+                <Routes>
+                    <Route path='/' element={<HomePage/>}/>
+                    <Route path='/register' element={<Register/>}/>
+                    <Route path='/login' element={<Login/>}/>
+                    <Route path='/logout' element={<Logout/>}/>
+                </Routes>
+            </div>
+        </AuthContext.Provider>
     );
 }
 
