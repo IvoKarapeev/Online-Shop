@@ -6,7 +6,6 @@ import { AuthContext } from '../../contexts/AuthContext';
 const Header = () => {
 
     const {user} = useContext(AuthContext);
-    console.log(user.AccessToken);
 
     return (
             <nav className={styles.navbar}>
@@ -21,13 +20,13 @@ const Header = () => {
                             <a href="/">Shop</a>
                             <ul className={styles.dropdown}>
                                 <div>
-                                <Link to="/">Clothes</Link>
+                                <Link to="/catalog/clothes">Clothes</Link>
                                 </div>
                                 <div>
-                                <Link to="/">Shoes</Link>
+                                <Link to="/catalog/shoes">Shoes</Link>
                                 </div>
                                 <div>
-                                <Link to="/">Accessories</Link>
+                                <Link to="/catalog/accessories">Accessories</Link>
                                 </div>
                             </ul>
                         </div>

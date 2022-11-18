@@ -11,6 +11,7 @@ import useLocalStorige from './hooks/useLocalStorige';
 import { clearUserState } from './redux/slice/productsSlice';
 import { useDispatch } from 'react-redux';
 import { AuthContext } from './contexts/AuthContext';
+import CatalogClothes from './components/CatalogClothes/CatalogClothes';
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
                     <Route path='/register' element={<Register/>}/>
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/logout' element={<Logout/>}/>
+                    <Route path='/catalog/clothes' element={<CatalogClothes/>}/>
                 </Routes>
             </div>
         </AuthContext.Provider>
