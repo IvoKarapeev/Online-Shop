@@ -68,6 +68,11 @@ const CreateProduct = () => {
     const onSubmit = (e) => {
         e.preventDefault();
 
+        if (errors.name || errors.description || errors.imageUrl || errors.category
+            || user.AccessToken === undefined) {
+            return ; 
+        }
+
         const postData = {
             productData,
             AccessToken:user.AccessToken

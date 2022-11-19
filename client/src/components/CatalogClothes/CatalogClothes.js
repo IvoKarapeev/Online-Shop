@@ -33,7 +33,6 @@ const CatalogClothes = () => {
                 ? clothes.map(item => <CatalogItem key={item._id} item={item}/>)
                 :<h1 className={styles['no-items']}>No clothes in the store yet.</h1>}
             
-            
         </div>
     )
 };
