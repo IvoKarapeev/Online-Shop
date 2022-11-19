@@ -37,7 +37,7 @@ const Header = () => {
                             <Link to='/logout'>Logout</Link>
                             </div>
                             <div>
-                                <Link to='/register'>Create Item</Link>
+                                <Link to='/procuts/sell'>Sell Item</Link>
                             </div>
                             <div>
                             <Link to='/user/profile'>Profile</Link>

@@ -5,13 +5,14 @@ import Header from './components/Header/Header';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
+import CatalogClothes from './components/CatalogClothes/CatalogClothes';
+import CreateProduct from './components/CreateProduct/CreateProduct';
 
 import { Routes,Route } from 'react-router-dom';
 import useLocalStorige from './hooks/useLocalStorige';
 import { clearUserState } from './redux/slice/productsSlice';
 import { useDispatch } from 'react-redux';
 import { AuthContext } from './contexts/AuthContext';
-import CatalogClothes from './components/CatalogClothes/CatalogClothes';
 
 function App() {
 
@@ -38,6 +39,7 @@ function App() {
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/logout' element={<Logout/>}/>
                     <Route path='/catalog/clothes' element={<CatalogClothes/>}/>
+                    <Route path='/procuts/sell' element={<CreateProduct/>}/>
                 </Routes>
             </div>
         </AuthContext.Provider>
