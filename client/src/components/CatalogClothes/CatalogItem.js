@@ -1,4 +1,5 @@
 import styles from './CatalogClothes.module.css';
+import { Link } from 'react-router-dom';
 
 const CatalogItem = ({item}) => {
     return (
@@ -14,6 +15,7 @@ const CatalogItem = ({item}) => {
                     {item.name}
                     <br />
                     <span>{item.category}</span>
+                    <button className={styles["details-btn"]}><Link to={`/product/details/${item._id}`}>Details</Link></button>
                     </h2>
                 </div>
             </div>

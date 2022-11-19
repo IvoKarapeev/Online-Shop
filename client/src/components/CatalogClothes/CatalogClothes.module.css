@@ -56,7 +56,7 @@ content:"";
 
 .card:hover .imgBx
 {
-    bottom: 80px;
+    bottom: 100px;
 }
 
 .card .imgBx img{
@@ -70,10 +70,10 @@ content:"";
 
 .card .details{
     position: absolute;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-    height: 60px;
+    left: 28px;
+    right: 28px;
+    bottom: 28px;
+    height: 70px;
     text-align: center;
 }
 
@@ -85,6 +85,16 @@ content:"";
     color: #777;
     text-transform: uppercase;
 } 
+
+.card .details-btn{
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: 15px;
+    width: 200px;
+    color: #777;
+    text-transform: uppercase;
+}
 
 .card .details h2 span{
     font-weight: 500;
