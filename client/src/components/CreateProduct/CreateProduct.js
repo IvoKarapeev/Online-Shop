@@ -1,7 +1,16 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { postProduct } from '../../redux/slice/productsSlice';
+import { AuthContext } from '../../contexts/AuthContext';
+import { useNavigate } from 'react-router-dom';
+
 import styles from './CreateProduct.module.css';
 
 const CreateProduct = () => {
+
+    const dispatch = useDispatch();
+    const { user } = useContext(AuthContext);
+    const navigate = useNavigate();
 
     const [productData,setProductData] = useState({
         name:'',
@@ -59,7 +68,22 @@ const CreateProduct = () => {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        console.log(productData);
+        const postData = {
+            productData,
+            AccessToken:user.AccessToken
+        }
+        dispatch(postProduct(postData));
+
+        let navigationCategory = productData.category;
+        
+        setProductData({
+            name:'',
+            description:'',
+            imageUrl:'',
+            category:''
+        });
+
+        navigate(`/catalog/${navigationCategory}`)
     };
 
     return (

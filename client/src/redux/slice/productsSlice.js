@@ -1,4 +1,4 @@
-import { createSlice,current } from '@reduxjs/toolkit';
+import { createSlice } from '@reduxjs/toolkit';
 
 const productsSlice = createSlice({
     name:'products',
@@ -8,7 +8,9 @@ const productsSlice = createSlice({
         setProducts(state, action) {
             const productsData = action.payload;
 
-            return [...state,{'products':productsData}]
+            const newState = state.filter(el => !el.hasOwnProperty('products'));
+            newState.products = productsData;
+            return newState;
         },
         registerUser() {},
         setUserState(state, action) {
@@ -29,10 +31,12 @@ const productsSlice = createSlice({
         clearUserState(state,action) {
         
             return state.filter(el => !el.hasOwnProperty('user'));
-        }
+        },
+        postProduct() {},
+       
     }
 });
 
-export const { getProducts,setProducts,registerUser,setUserState,loginUser,setErrorAuth,clearUserState } = productsSlice.actions;
+export const { getProducts,setProducts,registerUser,setUserState,loginUser,setErrorAuth,clearUserState,postProduct } = productsSlice.actions;
 
 export default productsSlice.reducer;

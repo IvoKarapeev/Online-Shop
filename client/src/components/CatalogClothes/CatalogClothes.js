@@ -14,13 +14,11 @@ const CatalogClothes = () => {
         dispatch(getProducts());
     },[dispatch]);
 
-    const stateProducts = useSelector((state) => state.products);
+    const products = useSelector((state) => state.products.products);
 
-    const products = stateProducts.find(el => el.hasOwnProperty('products'));
-    
     useEffect(() => {
         if (products) {
-            const clothesProducts = products.products.filter(el => el.category === 'Clothes');
+            const clothesProducts = products.filter(el => el.category === 'Clothes');
 
             setClothes(clothesProducts);
 
