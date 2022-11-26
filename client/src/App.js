@@ -7,9 +7,11 @@ import Login from './components/Login/Login';
 import Logout from './components/Logout/Logout';
 import CatalogClothes from './components/CatalogClothes/CatalogClothes';
 import CreateProduct from './components/CreateProduct/CreateProduct';
+import CatalogShoes from './components/CatalogShoes/CatalogShoes';
+import CatalogAccessories from './components/CatalogAccessories/CatalogAccessories';
 
-import { Routes,Route } from 'react-router-dom';
 import useLocalStorige from './hooks/useLocalStorige';
+import { Routes,Route } from 'react-router-dom';
 import { clearUserState } from './redux/slice/productsSlice';
 import { useDispatch } from 'react-redux';
 import { AuthContext } from './contexts/AuthContext';
@@ -39,6 +41,8 @@ function App() {
                     <Route path='/login' element={<Login/>}/>
                     <Route path='/logout' element={<Logout/>}/>
                     <Route path='/catalog/clothes' element={<CatalogClothes/>}/>
+                    <Route path='/catalog/shoes' element={<CatalogShoes/>}/>
+                    <Route path='/catalog/accessories' element={<CatalogAccessories/>}/>
                     <Route path='/procuts/sell' element={<CreateProduct/>}/>
                 </Routes>
             </div>
