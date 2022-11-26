@@ -18,6 +18,7 @@ const Register = () => {
         name:'',
         username:'',
         password:'',
+        wallet:'',
         repeatPassword:''
     });
 
@@ -48,7 +49,7 @@ const Register = () => {
     const onSubmit = (e) => {
         e.preventDefault();
 
-        if (userData.name.length < 2 || userData.username.length < 5 ||
+        if (userData.name.length < 2 || userData.username.length < 5 || !userData.wallet ||
             userData.password.length < 6 || userData.password !== userData.repeatPassword) {
             return ;
         };
@@ -56,7 +57,8 @@ const Register = () => {
         const authData = {
             name:userData.name,
             username:userData.username,
-            password:userData.password
+            password:userData.password,
+            wallet:userData.wallet
         }
 
         dispatch(registerUser(authData));
@@ -65,6 +67,7 @@ const Register = () => {
             name:'',
             username:'',
             password:'',
+            wallet:'',
             repeatPassword:''
         });
 
@@ -84,8 +87,19 @@ const Register = () => {
         }));
     };
 
-   
-
+    const numberValidator = (e) => {
+        if (isNaN(e.target.value)) {
+            setErrors(state => ({
+                ...state,
+                [e.target.name]:true
+            }));
+        }else{
+            setErrors(state => ({
+                ...state,
+                [e.target.name]:false
+            })); 
+        }
+    }
 
     return (
         <form onSubmit={onSubmit}>
@@ -124,6 +138,22 @@ const Register = () => {
         />
         {errors.username &&
             <div className={styles.validate}>Username should be at least 5 characters long</div>
+        }
+         <label htmlFor="wallet">
+            <b>Wallet</b>
+        </label>
+        <input
+            className={styles["input-text"]}
+            type="number"
+            placeholder="Enter money you have"
+            name="wallet"
+            id="wallet"
+            value={userData.wallet}
+            onChange={onChange}
+            onBlur={(e) => numberValidator(e)}
+        />
+        {errors.wallet &&
+            <div className={styles.validate}>Wallet shoud be a number of the money you have!</div>
         }
         <label htmlFor="password">
             <b>Password</b>
