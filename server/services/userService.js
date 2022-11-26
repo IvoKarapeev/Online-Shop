@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken')
 const { SALT_ROUNDS,SECRET } = require('../config/env');
 
-exports.register = async (name,username,password) => {
+exports.register = async (name,username,password,wallet) => {
 
     if (password.length < 6) {
         throw{
@@ -16,7 +16,8 @@ exports.register = async (name,username,password) => {
     const userData = {
         name,
         username,
-        password
+        password,
+        wallet
     };
 
     const user = await User.create(userData);

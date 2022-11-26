@@ -4,17 +4,18 @@ const userService = require('../services/userService');
 
 router.post('/register',isGuest, async (req,res) => {
 
-    const {name, username, password} = req.body;
+    const {name, username, password, wallet} = req.body;
 
     try {
         
-        const user = await userService.register(name,username,password);
+        const user = await userService.register(name,username,password, wallet);
         const token = await userService.createToken(user);
 
         return res.json({
             'AccessToken':token,
             _id:user._id,
-            username:user.username
+            username:user.username,
+            wallet:user.wallet
         })
 
     } catch (error) {
@@ -37,7 +38,8 @@ router.post('/login',isGuest, async (req,res) => {
         return res.json({
             'AccessToken':token,
             _id:user._id,
-            username:user.username
+            username:user.username,
+            wallet:user.wallet
         })
 
     } catch (error) {

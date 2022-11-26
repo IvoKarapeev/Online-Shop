@@ -11,6 +11,10 @@ const productSchema = new mongoose.Schema({
         required:true,
         minlength:[10,'The Description should be at least 10 characters long.']
     },
+    price:{
+        type: Number,
+        required:true,
+    },
     imageUrl:{
         type: String,
         required:true,

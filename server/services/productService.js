@@ -3,7 +3,7 @@ const User = require('../models/User');
 
 exports.getAllProducts = () => Product.find();
 
-exports.createProduct = async (name,description,imageUrl,category,creator) => {
+exports.createProduct = async (name,description,price,imageUrl,category,creator) => {
 
     if (!imageUrl.startsWith('http')) {
         throw{
@@ -11,7 +11,7 @@ exports.createProduct = async (name,description,imageUrl,category,creator) => {
         }
     };
 
-    const product = await Product.create({name,description,imageUrl,category,creator});
+    const product = await Product.create({name,description,price,imageUrl,category,creator});
 
     return product;
 
@@ -72,6 +72,13 @@ exports.purchaseProduct = async (productId,userId) => {
         };
     };
 
+    if (user.wallet < product.price) {
+        throw{
+            error: 'You dont have enough money to purchise this item!'
+        };
+    }
+
+    user.wallet -= product.price;
     user.purchasedProducts.push(product);
     user.save();
 

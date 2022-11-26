@@ -15,6 +15,10 @@ const userSchema = new mongoose.Schema({
         type: String,
         required:true
     },
+    wallet:{
+        type: Number,
+        required:true
+    },
     purchasedProducts:[{
         type:mongoose.Types.ObjectId,
         ref:'Product'

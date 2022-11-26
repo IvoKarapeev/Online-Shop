@@ -12,12 +12,12 @@ router.get('/', async (req,res) => {
 
 router.post('/',isAuth,async (req,res) => {
 
-    const {name,description,imageUrl,category} = req.body;
+    const {name,description,price,imageUrl,category} = req.body;
     const creator = req.user;
 
     try {
 
-        const newProduct =  await productService.createProduct(name,description,imageUrl,category,creator);
+        const newProduct =  await productService.createProduct(name,description,price,imageUrl,category,creator);
 
         res.json(newProduct);
     
@@ -42,11 +42,12 @@ router.get('/:productId',async (req,res) => {
 router.post('/:productId',isAuth,async (req,res) => {
 
     const userId = req.user._id;
-    const {name,description,imageUrl,category} = req.body;
+    const {name,description,price,imageUrl,category} = req.body;
 
     const productData = {
         name,
         description,
+        price,
         imageUrl,
         category
     };
