@@ -1,6 +1,7 @@
-import { useEffect, useState } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
+import { AuthContext } from '../../contexts/AuthContext';
 import { getProducts } from '../../redux/slice/productsSlice';
 
 import styles from './DetailsItem.module.css';
@@ -15,7 +16,8 @@ const DetailsItem = () => {
     });
 
     const dispatch = useDispatch();
-    
+
+    const { user } = useContext(AuthContext);
     const { itemId } = useParams();
     
     useEffect(() => {
@@ -30,6 +32,9 @@ const DetailsItem = () => {
             setItemDetails(item[0]);
         }
     },[products]);
+
+    console.log(user._id);
+    console.log(itemDetails.creator);
     
     return(
         <div className={styles.card}>
@@ -39,16 +44,23 @@ const DetailsItem = () => {
             <p>
             {itemDetails.description} 
             </p>
-            <p>
-            <button>Purchase</button>
-            </p>
-            {/* if owner */}
-            {/* <p>
-            <button>Edit</button>
-            </p>
-            <p>
-            <button>Delete</button>
-            </p> */}
+            { user._id === itemDetails.creator
+                ? 
+                <>
+                    <p>
+                        <button>Edit</button>
+                    </p>
+                    <p>
+                        <button>Delete</button>
+                    </p> 
+                </>
+                :
+                <>
+                <p>
+                    <button>Purchase</button>
+                </p>
+                </>
+            }
       </div>
     )
 };
