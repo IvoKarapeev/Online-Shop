@@ -27,18 +27,6 @@ router.post('/',isAuth,async (req,res) => {
 
 });
 
-router.get('/:productId',async (req,res) => {
-
-    try {
-        const product = await productService.getOne(req.params.productId);
-        
-        res.json(product);
-    } catch (error) {
-        res.status(404).send(error.error);
-    }
-
-});
-
 router.post('/:productId',isAuth,async (req,res) => {
 
     const userId = req.user._id;

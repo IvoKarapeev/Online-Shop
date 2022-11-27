@@ -17,8 +17,6 @@ exports.createProduct = async (name,description,price,imageUrl,category,creator)
 
 };
 
-exports.getOne = (productId) => Product.findById(productId);
-
 exports.edit = async (productId,productData,userId) => {
 
     const product = await Product.findById(productId).populate('creator');

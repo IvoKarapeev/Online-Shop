@@ -32,7 +32,7 @@ const productsSlice = createSlice({
         
             return state.filter(el => !el.hasOwnProperty('user'));
         },
-        postProduct() {},
+        postProduct() {}
        
     }
 });

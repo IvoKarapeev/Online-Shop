@@ -15,6 +15,7 @@ import { Routes,Route } from 'react-router-dom';
 import { clearUserState } from './redux/slice/productsSlice';
 import { useDispatch } from 'react-redux';
 import { AuthContext } from './contexts/AuthContext';
+import DetailsItem from './components/DetailsItem/DetailsItem';
 
 function App() {
 
@@ -44,6 +45,7 @@ function App() {
                     <Route path='/catalog/shoes' element={<CatalogShoes/>}/>
                     <Route path='/catalog/accessories' element={<CatalogAccessories/>}/>
                     <Route path='/procuts/sell' element={<CreateProduct/>}/>
+                    <Route path='/product/details/:itemId' element={<DetailsItem/>}/>
                 </Routes>
             </div>
         </AuthContext.Provider>
