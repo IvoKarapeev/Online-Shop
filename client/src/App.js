@@ -9,13 +9,13 @@ import CatalogClothes from './components/CatalogClothes/CatalogClothes';
 import CreateProduct from './components/CreateProduct/CreateProduct';
 import CatalogShoes from './components/CatalogShoes/CatalogShoes';
 import CatalogAccessories from './components/CatalogAccessories/CatalogAccessories';
+import DetailsItem from './components/DetailsItem/DetailsItem';
 
 import useLocalStorige from './hooks/useLocalStorige';
 import { Routes,Route } from 'react-router-dom';
 import { clearUserState } from './redux/slice/productsSlice';
 import { useDispatch } from 'react-redux';
 import { AuthContext } from './contexts/AuthContext';
-import DetailsItem from './components/DetailsItem/DetailsItem';
 
 function App() {
 
@@ -29,7 +29,7 @@ function App() {
     const logoutHandler = () => {
         dispatch(clearUserState());
         setAuthData({});
-    }
+    };
 
     return (
         <AuthContext.Provider value={{user:authData,setUser,logoutHandler}}>

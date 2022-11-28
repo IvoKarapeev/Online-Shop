@@ -11,7 +11,9 @@ exports.createProduct = async (name,description,price,imageUrl,category,creator)
         }
     };
 
-    const product = await Product.create({name,description,price,imageUrl,category,creator});
+    const isPurchased = false;
+
+    const product = await Product.create({name,description,price,imageUrl,category,creator,isPurchased});
 
     return product;
 
@@ -81,6 +83,7 @@ exports.purchaseProduct = async (productId,userId) => {
     user.save();
 
     product.customers.push(user);
+    product.isPurchased = true;
     product.save();
 
     return product;

@@ -1,8 +1,9 @@
 import { useContext, useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
 import { getProducts } from '../../redux/slice/productsSlice';
+import { purchaseProduct } from '../../redux/slice/productsSlice';
 
 import styles from './DetailsItem.module.css';
 
@@ -15,7 +16,10 @@ const DetailsItem = () => {
         description:''
     });
 
+    const [isPurchased,setIsPurchased] = useState(false);
+
     const dispatch = useDispatch();
+    const navigate = useNavigate();
 
     const { user } = useContext(AuthContext);
     const { itemId } = useParams();
@@ -28,14 +32,41 @@ const DetailsItem = () => {
 
     useEffect(() => {
         if (products) {
+
+            for (const item of products) {
+                if (item.customers.includes(user._id)) {
+                    setIsPurchased(true);
+                    break;
+                }
+            };
+
             const item = products.filter(el => el._id === itemId);
-            setItemDetails(item[0]);
+
+            if (item.isPurchased) {
+                setIsPurchased(true);
+                setItemDetails(item[0]);
+            }else{
+                setItemDetails(item[0]);
+            };
+            
         }
     },[products]);
 
-    console.log(user._id);
-    console.log(itemDetails.creator);
-    
+    const navigateBack = () => {
+        navigate(-1);
+    };
+
+    const purchaseItem = (id) => {
+        
+        const data = {
+            accessToken:user.AccessToken,
+            itemId:id
+        };
+
+        dispatch(purchaseProduct(data));
+        setIsPurchased(true);
+    };
+
     return(
         <div className={styles.card}>
             <img src={itemDetails.imageUrl} alt="Denim Jeans" style={{ width: "100%" }} />
@@ -44,8 +75,7 @@ const DetailsItem = () => {
             <p>
             {itemDetails.description} 
             </p>
-            { user._id === itemDetails.creator
-                ? 
+            { user._id === itemDetails.creator &&
                 <>
                     <p>
                         <button>Edit</button>
@@ -54,11 +84,19 @@ const DetailsItem = () => {
                         <button>Delete</button>
                     </p> 
                 </>
-                :
+            }
+            { isPurchased 
+                ?
                 <>
-                <p>
-                    <button>Purchase</button>
-                </p>
+                    <p>
+                     <button onClick={() => navigateBack()}>This item is not available!</button>
+                    </p>
+                </>
+                : user._id !== itemDetails.creator &&
+                <>
+                    <p>
+                        <button onClick={() => purchaseItem(itemDetails._id)}>Purchase</button>
+                    </p>
                 </>
             }
       </div>

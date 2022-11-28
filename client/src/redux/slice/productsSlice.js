@@ -32,11 +32,12 @@ const productsSlice = createSlice({
         
             return state.filter(el => !el.hasOwnProperty('user'));
         },
-        postProduct() {}
+        postProduct() {},
+        purchaseProduct() {},
        
     }
 });
 
-export const { getProducts,setProducts,registerUser,setUserState,loginUser,setErrorAuth,clearUserState,postProduct } = productsSlice.actions;
+export const { getProducts,setProducts,registerUser,setUserState,loginUser,setErrorAuth,clearUserState,postProduct,purchaseProduct } = productsSlice.actions;
 
 export default productsSlice.reducer;

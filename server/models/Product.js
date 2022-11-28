@@ -24,6 +24,10 @@ const productSchema = new mongoose.Schema({
         required:true,
         enum:['Clothes','Shoes','Accessories']
     },
+    isPurchased:{
+        type: Boolean,
+        require:true
+    },
     creator:{
         type:mongoose.Types.ObjectId,
         ref:'User',

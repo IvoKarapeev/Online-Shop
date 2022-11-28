@@ -15,6 +15,7 @@ const CreateProduct = () => {
     const [productData,setProductData] = useState({
         name:'',
         description:'',
+        price:'',
         imageUrl:'',
         category:''
     });
@@ -64,6 +65,20 @@ const CreateProduct = () => {
             }));
         }
     };
+
+    const priceValidator = (e) => {
+        if(e.target.value <= 0) {
+            setErrors(state => ({
+                ...state,
+                [e.target.name]:true
+            })); 
+        }else{
+            setErrors(state => ({
+                ...state,
+                [e.target.name]:false
+            }));
+        }
+    }
 
     const onSubmit = (e) => {
         e.preventDefault();
@@ -128,6 +143,22 @@ const CreateProduct = () => {
         />
         {errors.description &&
             <div className={styles.validate}>description should be at least 10 characters long</div>
+        }
+         <label htmlFor="Price">
+            <b>Price</b>
+        </label>
+        <input
+            className={styles["input-text"]}
+            type="number"
+            placeholder="Enter price"
+            name="price"
+            id="price"
+            value={productData.price}
+            onChange={onChange}
+            onBlur={(e) => priceValidator(e)}
+        />
+        {errors.price &&
+            <div className={styles.validate}>Price shoud be bigger the 0</div>
         }
         <label htmlFor="Image">
             <b>Image</b>
