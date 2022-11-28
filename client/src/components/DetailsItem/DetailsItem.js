@@ -33,16 +33,9 @@ const DetailsItem = () => {
     useEffect(() => {
         if (products) {
 
-            for (const item of products) {
-                if (item.customers.includes(user._id)) {
-                    setIsPurchased(true);
-                    break;
-                }
-            };
-
             const item = products.filter(el => el._id === itemId);
 
-            if (item.isPurchased) {
+            if (item[0].isPurchased) {
                 setIsPurchased(true);
                 setItemDetails(item[0]);
             }else{
@@ -66,6 +59,8 @@ const DetailsItem = () => {
         dispatch(purchaseProduct(data));
         setIsPurchased(true);
     };
+
+    console.log(isPurchased);
 
     return(
         <div className={styles.card}>
