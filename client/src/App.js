@@ -17,6 +17,7 @@ import { clearUserState } from './redux/slice/productsSlice';
 import { useDispatch } from 'react-redux';
 import { AuthContext } from './contexts/AuthContext';
 import EditItem from './components/EditItem/EditItem';
+import DeleteItem from './components/DeleteItem/DeleteItem';
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
                     <Route path='/procuts/sell' element={<CreateProduct/>}/>
                     <Route path='/product/details/:itemId' element={<DetailsItem/>}/>
                     <Route path='/product/edit/:itemId' element={<EditItem/>}/>
+                    <Route path='/product/delete/:itemId' element={<DeleteItem/>}/>
                 </Routes>
             </div>
         </AuthContext.Provider>

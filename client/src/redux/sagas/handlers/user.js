@@ -1,5 +1,5 @@
 import { call,put } from 'redux-saga/effects';
-import { setUserState,setErrorAuth } from '../../slice/productsSlice';
+import { setUserState,setErrorState } from '../../slice/productsSlice';
 import { requestPostUser,requestLoginUser } from '../requests/user';
 
 
@@ -9,7 +9,7 @@ export function* postRegisterUser(action) {
         const userData = action.payload;
         const authData = yield call(requestPostUser,userData);
         if (authData.error) {
-            yield put(setErrorAuth(authData.error));
+            yield put(setErrorState(authData.error));
         }else{
             yield put(setUserState(authData));
         }
@@ -25,7 +25,7 @@ export function* postLoginUser(action) {
         const userData = action.payload;
         const authData = yield call(requestLoginUser,userData);
         if (authData.error) {
-            yield put(setErrorAuth(authData.error));
+            yield put(setErrorState(authData.error));
         }else{
             yield put(setUserState(authData));
         }

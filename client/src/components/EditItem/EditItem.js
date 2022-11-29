@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
-import { editProduct, getProducts } from '../../redux/slice/productsSlice';
+import productsSlice, { editProduct, getProducts } from '../../redux/slice/productsSlice';
 
 import styles from './EditItem.module.css';
 
@@ -101,9 +101,16 @@ const EditItem = () => {
 
         const accessToken = user.AccessToken;
 
-        dispatch(editProduct({accessToken,itemId,productData}));
+        if(errors.name || errors.description || errors.price || errors.imageUrl || errors.category){
 
-        navigate(`/product/details/${itemId}`);
+            return ;
+            
+        }else{
+            dispatch(editProduct({accessToken,itemId,productData}));
+
+            navigate(`/product/details/${itemId}`);
+        };
+
     }
 
     return(

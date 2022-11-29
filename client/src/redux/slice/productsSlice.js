@@ -21,7 +21,7 @@ const productsSlice = createSlice({
             return newState;
         },
         loginUser() {},
-        setErrorAuth(state, action) {
+        setErrorState(state, action) {
             const errorState = {error:action.payload}
             const newState = [...state,errorState];
 
@@ -34,11 +34,12 @@ const productsSlice = createSlice({
         },
         postProduct() {},
         purchaseProduct() {},
-        editProduct() {}
+        editProduct() {},
+        deleteProduct() {}
        
     }
 });
 
-export const { getProducts,setProducts,registerUser,setUserState,loginUser,setErrorAuth,clearUserState,postProduct,purchaseProduct,editProduct } = productsSlice.actions;
+export const { getProducts,setProducts,registerUser,setUserState,loginUser,setErrorState,clearUserState,postProduct,purchaseProduct,editProduct,deleteProduct } = productsSlice.actions;
 
 export default productsSlice.reducer;

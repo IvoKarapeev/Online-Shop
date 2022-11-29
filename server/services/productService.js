@@ -36,8 +36,27 @@ exports.edit = async (productId,productData,userId) => {
     if (!productData.imageUrl.startsWith('http')) {
         throw{
             error:'Image Url shoud start with http/https'
-        }
+        };
     };
+
+    if(productData.name < 3){
+        throw{
+            error:'Name shoud be at least 3 characters long !'
+        };
+    };
+
+    if(productData.category !== 'Clothes' && productData.category !== 'Shoes' 
+    && productData.category !== 'Accessories'){
+        throw{
+            error:'Category shoud be Clothes, Shoes or Accessories !'
+        };
+    };
+
+    if(productData.price <= 0){
+        throw{
+            error:'Price shoud be bigger then 0'
+        };
+    }
 
     const editedProduct = await Product.findByIdAndUpdate(productId,productData);
     

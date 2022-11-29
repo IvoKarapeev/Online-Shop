@@ -41,3 +41,15 @@ export async function requestEditProduct(accessToken,itemId,productData) {
     .then(res => res.json())
     .then(data => data);
 };
+
+export async function requestDeleteProduct(accessToken,itemId) {
+    return await fetch(`http://localhost:3030/product/${itemId}`,{
+        method:'delete',
+        headers:{
+            'Content-type':'application/json',
+            'x-authorization':accessToken
+        }
+    })
+    .then(res => res.json())
+    .then(data => data);
+};
