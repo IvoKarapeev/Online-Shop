@@ -60,7 +60,11 @@ const DetailsItem = () => {
         setIsPurchased(true);
     };
 
-    console.log(isPurchased);
+    const navigateButtons = (e,navigateTo,id) => {
+
+        navigate(`/product/${navigateTo}/${id}`);
+    
+    };
 
     return(
         <div className={styles.card}>
@@ -73,10 +77,10 @@ const DetailsItem = () => {
             { user._id === itemDetails.creator &&
                 <>
                     <p>
-                        <button>Edit</button>
+                        <button onClick={(e) => navigateButtons(e,'edit',itemDetails._id)}>Edit</button>
                     </p>
                     <p>
-                        <button>Delete</button>
+                        <button onClick={(e) => navigateButtons(e,'delete',itemDetails._id)}>Delete</button>
                     </p> 
                 </>
             }

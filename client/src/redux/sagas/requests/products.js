@@ -28,3 +28,16 @@ export async function requestPurchaseProduct(accessToken,itemId) {
     .then(res => res.json())
     .then(data => data);
 };
+
+export async function requestEditProduct(accessToken,itemId,productData) {
+    return await fetch(`http://localhost:3030/product/${itemId}`,{
+        method:'put',
+        headers:{
+            'Content-type':'application/json',
+            'x-authorization':accessToken
+        },
+        body:JSON.stringify(productData)
+    })
+    .then(res => res.json())
+    .then(data => data);
+};

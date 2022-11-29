@@ -23,6 +23,8 @@ exports.edit = async (productId,productData,userId) => {
 
     const product = await Product.findById(productId).populate('creator');
     const creator = product.creator;
+    const isPurchased = product.isPurchased;
+    productData.isPurchased = isPurchased;
 
     if (userId != creator._id) {
         throw{

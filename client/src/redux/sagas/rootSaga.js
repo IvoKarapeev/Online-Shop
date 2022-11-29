@@ -1,6 +1,6 @@
 import { takeLatest } from "redux-saga/effects";
-import { getProductsHandler,postProductHandler, purchaseProductHandler } from "./handlers/products";
-import { getProducts, loginUser, registerUser, postProduct, purchaseProduct } from "../slice/productsSlice";
+import { editProductHanlder, getProductsHandler,postProductHandler, purchaseProductHandler } from "./handlers/products";
+import { getProducts, loginUser, registerUser, postProduct, purchaseProduct, editProduct } from "../slice/productsSlice";
 import { postRegisterUser, postLoginUser} from "./handlers/user";
 
 export function* watcherSaga() {
@@ -10,5 +10,6 @@ export function* watcherSaga() {
     yield takeLatest(loginUser.type,postLoginUser);
     yield takeLatest(postProduct.type,postProductHandler);
     yield takeLatest(purchaseProduct.type,purchaseProductHandler);
+    yield takeLatest(editProduct.type,editProductHanlder);
 
 };

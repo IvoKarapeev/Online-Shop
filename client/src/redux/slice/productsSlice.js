@@ -34,10 +34,11 @@ const productsSlice = createSlice({
         },
         postProduct() {},
         purchaseProduct() {},
+        editProduct() {}
        
     }
 });
 
-export const { getProducts,setProducts,registerUser,setUserState,loginUser,setErrorAuth,clearUserState,postProduct,purchaseProduct } = productsSlice.actions;
+export const { getProducts,setProducts,registerUser,setUserState,loginUser,setErrorAuth,clearUserState,postProduct,purchaseProduct,editProduct } = productsSlice.actions;
 
 export default productsSlice.reducer;

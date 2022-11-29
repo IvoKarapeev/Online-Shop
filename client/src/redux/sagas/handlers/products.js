@@ -1,6 +1,6 @@
 import { call,put } from 'redux-saga/effects';
 import { setProducts } from '../../slice/productsSlice';
-import { requestGetProducts,requestPostProduct,requestPurchaseProduct } from '../requests/products';
+import { requestEditProduct,requestGetProducts,requestPostProduct,requestPurchaseProduct } from '../requests/products';
 
 
 export function* getProductsHandler(action) {
@@ -32,6 +32,21 @@ export function* purchaseProductHandler(action) {
         const accessToken = action.payload.accessToken; 
         const itemId = action.payload.itemId;
         yield call(requestPurchaseProduct,accessToken,itemId);
+
+    } catch (error) {
+        console.log(error);        
+    }
+};
+
+export function* editProductHanlder(action) {
+    try {
+      
+        const accessToken = action.payload.accessToken; 
+        const itemId = action.payload.itemId;
+        const productData = action.payload.productData;
+        yield call(requestEditProduct,accessToken,itemId,productData);
+        const products = yield call(requestGetProducts);
+        yield put(setProducts(products));
 
     } catch (error) {
         console.log(error);        

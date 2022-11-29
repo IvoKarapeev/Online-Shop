@@ -27,7 +27,7 @@ router.post('/',isAuth,async (req,res) => {
 
 });
 
-router.post('/:productId',isAuth,async (req,res) => {
+router.put('/:productId',isAuth,async (req,res) => {
 
     const userId = req.user._id;
     const {name,description,price,imageUrl,category} = req.body;
