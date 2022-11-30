@@ -19,7 +19,7 @@ const userSchema = new mongoose.Schema({
         type: Number,
         required:true
     },
-    purchasedProducts:[{
+    soldProducts:[{
         type:mongoose.Types.ObjectId,
         ref:'Product'
     }]

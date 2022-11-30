@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { isGuest } = require('../middlewares/authMiddlewares');
+const { isGuest, isAuth } = require('../middlewares/authMiddlewares');
 const userService = require('../services/userService');
 
 router.post('/register',isGuest, async (req,res) => {
@@ -47,6 +47,16 @@ router.post('/login',isGuest, async (req,res) => {
         res.status(404).json({error});
 
     }
+
+});
+
+router.get('/profile',isAuth, async (req,res) => {
+
+    const userId = req.user._id;
+
+    const products = await userService.getProfile(userId);
+
+    res.json(products);
 
 });
 
