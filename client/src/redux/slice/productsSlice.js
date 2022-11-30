@@ -36,7 +36,7 @@ const productsSlice = createSlice({
         purchaseProduct() {},
         editProduct() {},
         deleteProduct() {}
-       
+        
     }
 });
 

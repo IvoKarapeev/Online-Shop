@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useDispatch,useSelector } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom';
 import { AuthContext } from '../../contexts/AuthContext';
-import productsSlice, { editProduct, getProducts } from '../../redux/slice/productsSlice';
+import { editProduct, getProducts } from '../../redux/slice/productsSlice';
 
 import styles from './EditItem.module.css';
 

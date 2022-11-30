@@ -18,6 +18,7 @@ import { useDispatch } from 'react-redux';
 import { AuthContext } from './contexts/AuthContext';
 import EditItem from './components/EditItem/EditItem';
 import DeleteItem from './components/DeleteItem/DeleteItem';
+import ProfilePage from './components/ProfilePage/ProfilePage';
 
 function App() {
 
@@ -50,6 +51,7 @@ function App() {
                     <Route path='/product/details/:itemId' element={<DetailsItem/>}/>
                     <Route path='/product/edit/:itemId' element={<EditItem/>}/>
                     <Route path='/product/delete/:itemId' element={<DeleteItem/>}/>
+                    <Route path='/user/profile' element={<ProfilePage/>}/>
                 </Routes>
             </div>
         </AuthContext.Provider>

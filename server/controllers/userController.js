@@ -50,15 +50,4 @@ router.post('/login',isGuest, async (req,res) => {
 
 });
 
-router.get('/profile',isAuth, async (req,res) => {
-
-    const userId = req.user._id;
-
-    const products = await userService.getProfile(userId);
-
-    res.json(products);
-
-});
-
-
 module.exports = router;

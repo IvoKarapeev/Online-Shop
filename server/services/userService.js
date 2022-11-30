@@ -66,14 +66,3 @@ exports.createToken = async (user) => {
     })
     
 };
-
-
-exports.getProfile = async (userId) => {
-
-    const user = await User.findById(userId).populate('soldProducts');
-
-    const soldProducts = user.soldProducts;
-
-    return soldProducts;
-
-};
