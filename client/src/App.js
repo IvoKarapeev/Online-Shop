@@ -10,15 +10,17 @@ import CreateProduct from './components/CreateProduct/CreateProduct';
 import CatalogShoes from './components/CatalogShoes/CatalogShoes';
 import CatalogAccessories from './components/CatalogAccessories/CatalogAccessories';
 import DetailsItem from './components/DetailsItem/DetailsItem';
+import EditItem from './components/EditItem/EditItem';
+import DeleteItem from './components/DeleteItem/DeleteItem';
+import ProfilePage from './components/ProfilePage/ProfilePage';
+import GuestRoute from './components/common/GuestRoute';
+import PrivateRoute from './components/common/PrivateRoute';
 
 import useLocalStorige from './hooks/useLocalStorige';
 import { Routes,Route } from 'react-router-dom';
 import { clearUserState } from './redux/slice/productsSlice';
 import { useDispatch } from 'react-redux';
 import { AuthContext } from './contexts/AuthContext';
-import EditItem from './components/EditItem/EditItem';
-import DeleteItem from './components/DeleteItem/DeleteItem';
-import ProfilePage from './components/ProfilePage/ProfilePage';
 
 function App() {
 
@@ -40,18 +42,22 @@ function App() {
                 <Header/>
 
                 <Routes>
-                    <Route path='/' element={<HomePage/>}/>
-                    <Route path='/register' element={<Register/>}/>
-                    <Route path='/login' element={<Login/>}/>
-                    <Route path='/logout' element={<Logout/>}/>
-                    <Route path='/catalog/clothes' element={<CatalogClothes/>}/>
-                    <Route path='/catalog/shoes' element={<CatalogShoes/>}/>
-                    <Route path='/catalog/accessories' element={<CatalogAccessories/>}/>
-                    <Route path='/procuts/sell' element={<CreateProduct/>}/>
-                    <Route path='/product/details/:itemId' element={<DetailsItem/>}/>
-                    <Route path='/product/edit/:itemId' element={<EditItem/>}/>
-                    <Route path='/product/delete/:itemId' element={<DeleteItem/>}/>
-                    <Route path='/user/profile' element={<ProfilePage/>}/>
+                        <Route path='/' element={<HomePage/>}/>
+                        <Route path='/catalog/clothes' element={<CatalogClothes/>}/>
+                        <Route path='/catalog/shoes' element={<CatalogShoes/>}/>
+                        <Route path='/catalog/accessories' element={<CatalogAccessories/>}/>
+                        <Route path='/product/details/:itemId' element={<DetailsItem/>}/>
+                    <Route element={<GuestRoute />}>
+                        <Route path='/register' element={<Register/>}/>
+                        <Route path='/login' element={<Login/>}/>
+                    </Route>
+                    <Route element={<PrivateRoute />}>
+                        <Route path='/procuts/sell' element={<CreateProduct/>}/>
+                        <Route path='/product/edit/:itemId' element={<EditItem/>}/>
+                        <Route path='/product/delete/:itemId' element={<DeleteItem/>}/>
+                        <Route path='/user/profile' element={<ProfilePage/>}/>
+                        <Route path='/logout' element={<Logout/>}/>
+                    </Route>
                 </Routes>
             </div>
         </AuthContext.Provider>
