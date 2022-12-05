@@ -7,8 +7,8 @@
     padding: 5px;
     height: 50px;
     width: 1910px;
-    background-color: rgb(4, 101, 77);
-    color: rgb(11, 172, 132);
+    background-color: rgb(234, 234, 234);
+    color: rgb(2, 5, 5);
 }
 
 .nav-links a {
@@ -31,7 +31,7 @@
 }
 
 .menu div:hover {
-    background-color:rgb(11, 172, 132);
+    background-color:rgb(196, 196, 196);
     border-radius: 5px;
     transition: 0.3s ease;
 }
@@ -45,7 +45,7 @@
 }
 
 .dropdown {
-    background-color: rgb(1, 139, 139);
+    background-color: rgb(196, 196, 196);
     padding: 1em 0;
     position: absolute;
     display: none;
@@ -65,7 +65,7 @@
 }
 
 .dropdown div:hover {
-    background-color: #4c9e9e;
+    background-color: #d4d4d4;
 }
 
 .services:hover .dropdown {
