@@ -112,7 +112,7 @@ const CreateProduct = () => {
         <h1>Sell Product</h1>
         <p>Please fill in this form to sell the item you want.</p>
         <hr className={styles.separator}/>
-        <label htmlFor="name">
+        <label htmlFor="name" className={styles['label-one']}>
             <b>Name</b>
         </label>
         <input
@@ -128,7 +128,7 @@ const CreateProduct = () => {
         {errors.name &&
             <div className={styles.validate}>Name should be at least 3 characters long</div>
         }
-         <label htmlFor="Description">
+         <label htmlFor="Description" className={styles['label-two']}>
             <b>Description</b>
         </label>
         <input
@@ -144,7 +144,7 @@ const CreateProduct = () => {
         {errors.description &&
             <div className={styles.validate}>description should be at least 10 characters long</div>
         }
-         <label htmlFor="Price">
+         <label htmlFor="Price" className={styles['label-one']}>
             <b>Price</b>
         </label>
         <input
@@ -160,7 +160,7 @@ const CreateProduct = () => {
         {errors.price &&
             <div className={styles.validate}>Price shoud be bigger the 0</div>
         }
-        <label htmlFor="Image">
+        <label htmlFor="Image" className={styles['label-one']}>
             <b>Image</b>
         </label>
         <input
@@ -176,7 +176,7 @@ const CreateProduct = () => {
         {errors.imageUrl &&
             <div className={styles.validate}>Image shoud starts with http/https</div>
         }
-        <label htmlFor="category">
+        <label htmlFor="category" className={styles['label-two']}>
             <b>Category</b>
         </label>
         <input

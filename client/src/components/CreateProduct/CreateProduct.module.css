@@ -1,11 +1,11 @@
 .container {
     margin-top: 150px;
-    margin-left: 570px;
-    background-color: rgb(117, 137, 125);
-    width: 40%;
+    margin-left: 670px;
+    background-color: rgb(174, 232, 242);
+    width: 30%;
     height: 90%;
     padding: 16px;
-    box-sizing: border-box
+    box-sizing: border-box;
 }
 
 .input-text {
@@ -28,7 +28,7 @@
 }
 
 .sell-btn {
-    background-color: rgb(4, 101, 77);
+    background-color: rgb(31, 102, 145);
     color: white;
     padding: 16px 20px;
     margin: 10px 0;
@@ -39,7 +39,7 @@
 }
 
 .sell-btn:hover {
-    background-color: rgb(30, 82, 69);
+    background-color: rgb(27, 79, 112);
 }
 
 .validate {
@@ -47,4 +47,12 @@
     font-size: 16px;
     font-family: cursive;
     text-shadow: 1px 1px black;
+}
+
+.label-one{
+    margin-right: 90%;
+}
+
+.label-two{
+    margin-right: 83%;
 }
