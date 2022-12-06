@@ -123,7 +123,7 @@ const Login = () => {
         }
         <hr className={styles.separator}/>
         <button type="submit" className={styles.loginbtn}>
-            Register
+            Login
         </button>
         </div>
     </form>
