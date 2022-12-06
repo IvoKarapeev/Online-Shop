@@ -121,11 +121,11 @@ content:"";
     border-radius: 40px;
     border: solid;
     text-align: center;
-    background-color: rgb(12, 164, 126);
+    background-color: rgb(174, 232, 242);
 }
 
 .title-card:hover{
-    background-color: rgb(13, 177, 136);
+    background-color: rgb(131, 224, 241);
 }
 
 .title-card h1 div h3{
